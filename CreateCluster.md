@@ -33,34 +33,34 @@
   - Floating IP Resource
 - Install Podman.
   ```sh
-  # dnf install podman
+  dnf install podman
   ```
 
 ## MariaDB Clustering
 1. Install install mysql-libs on both servers.
    ```sh
-   # dnf install mysql-libs
+   dnf install mysql-libs
    ```
 1. If you have a proxy server, run the following command to pull images.
    ```sh
-   # export HTTP_PROXY=<your proxy server>
+   export HTTP_PROXY=<your proxy server>
    ```
 1. Pull MariaDB container image on both servers.
    ```sh
-   # podman pull mariadb
+   podman pull mariadb
    ```
 1. Start the failover group on node1.
 1. Run the following command on node1 to create and run MariaDB container.
    ```sh
-   # podman run --name mariadb1 -v /mnt/md1:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=password -e MYSQL_DATABASE=watch -e -p 3306:3306 -d mariadb:latest
+   podman run --name mariadb1 -v /mnt/md1:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=password -e MYSQL_DATABASE=watch -p 3306:3306 -d mariadb:latest
    ```
 1. Run the following command on node2 to create MariaDB container.
    ```sh
-   # podman create --name mariadb1 -v /mnt/md1:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=password -e MYSQL_DATABASE=watch -e -p 3306:3306 -d mariadb:latest
+   podman create --name mariadb1 -v /mnt/md1:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=password -e MYSQL_DATABASE=watch -p 3306:3306 -d mariadb:latest
    ```
 1. Run the following command on node1 to stop the container.
    ```sh
-   # podman stop mariadb1
+   podman stop mariadb1
    ```
 1. Start Cluster WebUI and add Exec Resource as below.
    - start.sh

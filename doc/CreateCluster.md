@@ -143,7 +143,7 @@
    ```sh
    [root@server1 ~]# clpstat
     ========================  CLUSTER STATUS  ===========================
-     Cluster : clustername
+     Cluster : cluster
      <server>
       *server1 .........: Online           Primary server
          lankhb1        : Normal           Kernel Mode LAN Heartbeat
@@ -152,8 +152,8 @@
          lankhb1        : Normal           Kernel Mode LAN Heartbeat
          httpnp1        : Normal           http resolution
      <group>
-       failover1 .......: Online           Group for HTTP
-         current        : server2
+       failover1 .......: Online           Group for MariaDB
+         current        : server1
          exec-mariadb1  : Online
          md1            : Online
      <monitor>

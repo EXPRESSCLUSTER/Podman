@@ -144,7 +144,7 @@
    - Password: password
    - Table: mysqlwatch
    - Storage Engine: InnoDB
-   - Library Path: /usr/lib64/mysql/libmysqlclient.so.21
+   - Library Path: /usr/lib64/libmariadb.so.3
 1. Click [Apply the Configuration File].
 1. Check the cluster status.
    ```sh

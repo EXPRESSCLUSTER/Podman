@@ -4,6 +4,7 @@
 - [Evaluation Environment](#evaluation-environment)
 - [Prerequisite](#prerequisite)
 - [MariaDB Clustering](#mariadb-clustering)
+- [Add Database Monitor](#add-database-monitor)
 
 ## Evaluation Environment
 ```
@@ -77,6 +78,43 @@
        userw1           : Normal           User mode monitor
     =====================================================================
    ```
+## Add Database Monitor
+1. On Cluster WebUI, add MySQL Monitor Resource as below.
+   - Monitor Level: Level 2
+   - Database Name: watch
+   - IP Address: 127.0.0.1
+   - Port: 3306
+   - User Name: root
+   - Password: password
+   - Table: mysqlwatch
+   - Storage Engine: InnoDB
+   - Library Path: /usr/lib64/libmariadb.so.3
+1. Click [Apply the Configuration File].
+1. Check the cluster status.
+   ```
+   [root@server1 ~]# clpstat
+    ========================  CLUSTER STATUS  ===========================
+     Cluster : cluster
+     <server>
+      *server1 .........: Online           Primary server
+         lankhb1        : Normal           Kernel Mode LAN Heartbeat
+         httpnp1        : Normal           http resolution
+       server2 .........: Online           Secondary server
+         lankhb1        : Normal           Kernel Mode LAN Heartbeat
+         httpnp1        : Normal           http resolution
+     <group>
+       failover1 .......: Online           Group for MariaDB
+         current        : server1
+         exec-mariadb1  : Online
+         md1            : Online
+     <monitor>
+       mdnw1            : Normal
+       mdw1             : Normal
+       mysqlw1          : Normal
+       userw1           : Normal           User mode monitor
+    =====================================================================
+   ```
+
 
 <!--
 1. If you have a proxy server, run the following command to pull images.

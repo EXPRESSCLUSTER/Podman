@@ -30,8 +30,7 @@
   - EXPRESSCLUSTER X 5.0 (5.0.1-1)
 
 ## Prerequisite
-- Install EXPRESSSCLUSTER and create a cluster. For details, refer to **Installation and Configuration Guide**.
-  - https://docs.nec.co.jp/sites/default/files/minisite/static/172c9539-1000-410c-ba68-5ad8d651148c/ecx_x50_linux_en/L50_IG_EN/index.html
+- Install EXPRESSSCLUSTER and create a cluster. For details, refer to [Installation and Configuration Guide](https://docs.nec.co.jp/sites/default/files/minisite/static/1639a2de-5285-471a-817b-d0b98603d987/ecx_x50_linux_en/index.html).
 - Add the following resources.
   - Mirror Disk Resource
     - Mount Point: /mnt/md1

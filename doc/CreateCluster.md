@@ -6,24 +6,27 @@
 - [MariaDB Clustering](#mariadb-clustering)
 
 ## Evaluation Environment
-- MIRACLE LINUX 8.4 (4.18.0-305.25.1.el8_4.x86_64)
-- Podman (3.4.2)
-- EXPRESSCLUSTER X 5.0 (5.0.1-1)
-  ```
+```
   +------------------------+
   | server1                |   +-------------+
-  | - MIRACLE LINUX 8.4    |   |             |
+  | - MIRACLE LINUX        |   |             |
   | - Podman               +---+ Mirror Disk |
   | - EXPRESSCLUSTER X 5.0 |   |             |
   +------------------------+   +------|------+
                                       | Mirroring
   +------------------------+   +------V------+
   | server2                |   |             |
-  | - MIRACLE LINUX 8.4    +---+ Mirror Disk |
+  | - MIRACLE LINUX        +---+ Mirror Disk |
   | - Podman               |   |             |
   | - EXPRESSCLUSTER X 5.0 |   +-------------+
   +------------------------+
-  ```
+```
+- MIRACLE LINUX 8.6 (4.18.0-372.32.1.el8_6.x86_64)
+  - Podman (4.1.1)
+  - EXPRESSCLUSTER X 5.0 (5.0.2-1)
+- MIRACLE LINUX 8.4 (4.18.0-305.25.1.el8_4.x86_64)
+  - Podman (3.4.2)
+  - EXPRESSCLUSTER X 5.0 (5.0.1-1)
 
 ## Prerequisite
 - Install EXPRESSSCLUSTER and create a cluster. For details, refer to **Installation and Configuration Guide**.
@@ -38,9 +41,9 @@
   ```
 
 ## MariaDB Clustering
-1. Install install mysql-libs on both nodes.
+1. Install install mariadb on both nodes.
    ```sh
-   dnf install mysql-libs
+   dnf install mariadb
    ```
 1. If you have a proxy server, run the following command to pull images.
    ```sh
@@ -94,6 +97,10 @@
 1. Run the following command on server1 to stop the container.
    ```sh
    podman stop mariadb1
+   ```
+1. Move the failover group to server2.
+   ```sh
+   clpgrp -m failover1
    ```
 1. Run the following command on server2 to create MariaDB container.
    ```sh

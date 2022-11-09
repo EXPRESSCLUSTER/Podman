@@ -1,4 +1,4 @@
-# Create Cluster with EXPRESSCLUSTER
+# MariaDB Cluster with EXPRESSCLUSTER
 
 ## Index
 - [Evaluation Environment](#evaluation-environment)
@@ -35,16 +35,50 @@
   - Mirror Disk Resource
     - Mount Point: /mnt/md1
   - Floating IP Resource
-- Install Podman.
+- Install podman and mariadb on both nodes.
   ```sh
-  dnf install podman
+  dnf install podman mariadb
   ```
 
 ## MariaDB Clustering
-1. Install install mariadb on both nodes.
-   ```sh
-   dnf install mariadb
+1. Start Cluster WebUI and add Exec Resource.
+1. Edit start.bat and stop.bat as below.
+   - [start.bat](../script/MariaDB/start.sh)
+   - [stop.bat](../script/MariaDB/sop.sh)
+1. Recommend to enable script log.
+   - Resource Properties
+     1. [Details] tab
+     1. [Tuning]
+     1. [Maintenance] tab
+        - Log Output Path: /opt/nec/clusterpro/log/exec-mariadb1
+        - Rotate Log: Check
+1. Click [Apply the Configuration File].
+1. Start the failover group.
+1. Check the cluster status.
    ```
+   [root@server1 ~]# clpstat
+    ========================  CLUSTER STATUS  ===========================
+     Cluster : cluster
+     <server>
+      *server1 .........: Online           Primary server
+         lankhb1        : Normal           Kernel Mode LAN Heartbeat
+         httpnp1        : Normal           http resolution
+       server2 .........: Online           Secondary server
+         lankhb1        : Normal           Kernel Mode LAN Heartbeat
+         httpnp1        : Normal           http resolution
+     <group>
+       failover1 .......: Online           Group for MariaDB
+         current        : server1
+         exec-mariadb1  : Online
+         md1            : Online
+     <monitor>
+       mdnw1            : Normal
+       mdw1             : Normal
+       userw1           : Normal           User mode monitor
+    =====================================================================
+   ```
+
+<!--
 1. If you have a proxy server, run the following command to pull images.
    ```sh
    export HTTP_PROXY=<your proxy server>
@@ -170,3 +204,4 @@
        userw1           : Normal           User mode monitor
     =====================================================================
    ```
+-->

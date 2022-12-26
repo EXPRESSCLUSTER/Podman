@@ -39,9 +39,9 @@
 
 ## Clustering
 1. Start Cluster WebUI and add Exec Resource.
-1. Edit start.bat and stop.bat as below.
-   - [start.bat](../script/PostgreSQL/start.sh)
-   - [stop.bat](../script/PostgreSQL/sop.sh)
+1. Edit start.sh and stop.sh as below.
+   - [start.sh](../script/PostgreSQL/start.sh)
+   - [stop.sh](../script/PostgreSQL/stop.sh)
 1. Recommend to enable script log.
    - Resource Properties
      1. [Details] tab

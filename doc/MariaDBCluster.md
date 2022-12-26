@@ -43,8 +43,8 @@
 ## Clustering
 1. Start Cluster WebUI and add Exec Resource.
 1. Edit start.bat and stop.bat as below.
-   - [start.bat](../script/MariaDB/start.sh)
-   - [stop.bat](../script/MariaDB/sop.sh)
+   - [start.sh](../script/MariaDB/start.sh)
+   - [stop.sh](../script/MariaDB/stop.sh)
 1. Recommend to enable script log.
    - Resource Properties
      1. [Details] tab

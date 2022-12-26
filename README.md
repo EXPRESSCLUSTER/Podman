@@ -1,4 +1,5 @@
 # Podman
 
-## Create a cluster
-- Create a cluster to control containers as a resource with EXPRESSCLUSTER. Refer to [Create Cluster with EXPRESSCLUSTER](doc/MariaDBCluster.md).
+## Create Cluster
+- Create a cluster to control containers as a resource with EXPRESSCLUSTER.
+  - [MariaDB](doc/MariaDBCluster.md)

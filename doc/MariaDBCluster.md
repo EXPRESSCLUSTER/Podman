@@ -3,7 +3,7 @@
 ## Index
 - [Evaluation Environment](#evaluation-environment)
 - [Prerequisite](#prerequisite)
-- [MariaDB Clustering](#mariadb-clustering)
+- [Clustering](#mariadb-clustering)
 - [Add Database Monitor](#add-database-monitor)
 
 ## Evaluation Environment
@@ -40,7 +40,7 @@
   dnf install podman mariadb
   ```
 
-## MariaDB Clustering
+## Clustering
 1. Start Cluster WebUI and add Exec Resource.
 1. Edit start.bat and stop.bat as below.
    - [start.bat](../script/MariaDB/start.sh)

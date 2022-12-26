@@ -3,7 +3,7 @@
 ## Index
 - [Evaluation Environment](#evaluation-environment)
 - [Prerequisite](#prerequisite)
-- [Clustering](#mariadb-clustering)
+- [Clustering](#clustering)
 - [Add Database Monitor](#add-database-monitor)
 
 ## Evaluation Environment
@@ -69,12 +69,12 @@
      <group>
        failover1 .......: Online           Group for MariaDB
          current        : server1
-         exec-mariadb1  : Online
+         exec-mariadb   : Online
          md1            : Online
      <monitor>
        mdnw1            : Normal
        mdw1             : Normal
-       userw1           : Normal           User mode monitor
+       userw            : Normal           User mode monitor
     =====================================================================
    ```
 ## Add Database Monitor
@@ -104,13 +104,13 @@
      <group>
        failover1 .......: Online           Group for MariaDB
          current        : server1
-         exec-mariadb1  : Online
+         exec-mariadb   : Online
          md1            : Online
      <monitor>
        mdnw1            : Normal
        mdw1             : Normal
-       mysqlw1          : Normal
-       userw1           : Normal           User mode monitor
+       mysqlw           : Normal
+       userw            : Normal           User mode monitor
     =====================================================================
    ```
 
